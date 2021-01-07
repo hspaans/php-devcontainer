@@ -1,0 +1,21 @@
+{
+  "name": "PHP",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "appPort": [],
+  "postCreateCommand": "",
+  "remoteUser": "vscode",
+  "extensions": [
+    "github.vscode-pull-request-github",
+    "redhat.vscode-yaml",
+    "yzhang.markdown-all-in-one",
+    "felixfbecker.php-pack",
+    "ikappas.phpcs",
+    "junstyle.php-cs-fixer"
+  ]
+}
