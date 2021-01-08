@@ -1,8 +1,8 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: composer
-    directory: /
+  - package-ecosystem: docker
+    directory: /.devcontainer/
     schedule:
       interval: weekly
       day: friday
@@ -14,7 +14,23 @@ updates:
     schedule:
       interval: weekly
       day: friday
-    target-branch: master
+    target-branch: v7.3
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: docker
+    directory: /.devcontainer/
+    schedule:
+      interval: weekly
+      day: friday
+    target-branch: v7.4
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: docker
+    directory: /.devcontainer/
+    schedule:
+      interval: weekly
+      day: friday
+    target-branch: v8.0
     open-pull-requests-limit: 10
 
   - package-ecosystem: github-actions
@@ -23,4 +39,28 @@ updates:
       interval: weekly
       day: friday
     target-branch: master
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+    target-branch: v7.3
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+    target-branch: v7.4
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+    target-branch: v8.0
     open-pull-requests-limit: 10
