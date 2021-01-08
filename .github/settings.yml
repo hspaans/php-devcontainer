@@ -4,3 +4,13 @@ repository:
   topics: vscode, codespaces, devcontainer, php, composer, symfony
   delete_branch_on_merge: true
   has_wiki: false
+
+branches:
+  - name: v8.0
+    protection:
+      required_status_checks:
+        strict: true
+        contexts:
+          - Lint Code Base
+          - Build and Test
+      enforce_admins: true
