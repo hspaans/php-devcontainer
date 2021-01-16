@@ -17,7 +17,7 @@ ARG USER_GID=$USER_UID
 COPY install-*.sh /usr/local/bin/
 
 # Configure apt and install packages
-# hadolint ignore=DL3008,DL3013
+# hadolint ignore=DL3008,DL3013,DL4006
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
