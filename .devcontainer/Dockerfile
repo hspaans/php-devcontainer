@@ -24,8 +24,29 @@ RUN apt-get update \
     # Install git iproute2, procps, lsb-release (useful for CLI installs)
     && apt-get -y install --no-install-recommends git iproute2 procps iproute2 lsb-release \
     #
-    # Install Ansible and Ansible Lint
-    # && pip install --no-cache-dir -r /usr/local/etc/requirements.txt \
+    # Set local PHP settings
+    && echo "short_open_tag=off" > /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/local.ini \
+    #
+    # Install PHP dependencies
+    && apt-get -y install --no-install-recommends libzip-dev libicu-dev \
+    #
+    # Install PHP extension: zip
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install zip \
+    #
+    # Install PHP extension: intl
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
+    #
+    # Install PHP extension: opcache
+    && docker-php-ext-configure opcache \
+    && docker-php-ext-install opcache \
+    #
+    # Install PHP extension: xdebug
+    && yes | pecl install xdebug \
+    && docker-php-ext-enable xdebug \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid "$USER_GID" "$USERNAME" \
