@@ -22,7 +22,7 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
     # Install git iproute2, procps, lsb-release (useful for CLI installs)
-    && apt-get -y install --no-install-recommends git iproute2 procps iproute2 lsb-release \
+    && apt-get -y install --no-install-recommends git iproute2 procps iproute2 lsb-release rcm \
     #
     # Set local PHP settings
     && echo "short_open_tag=off" > /usr/local/etc/php/conf.d/local.ini \
