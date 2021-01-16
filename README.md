@@ -31,9 +31,9 @@ The container is based on [LTS](https://en.wikipedia.org/wiki/Long-term_support)
 
 | Platform | Version | Image |
 |:--------:|:-------:|:-----:|
-| PHP      | 7.3     | [hspaans/php-devcontainer:7.3(.x)][php-devcontainer:7.3] |
-| PHP      | 7.4     | [hspaans/php-devcontainer:7.4(.x)][php-devcontainer:7.4] |
-| PHP      | 8.0     | [hspaans/php-devcontainer:8.0(.x)][php-devcontainer:8.0] |
+| PHP      | 7.3     | [hspaans/php-devcontainer:7.3][php-devcontainer:7.3] |
+| PHP      | 7.4     | [hspaans/php-devcontainer:7.4][php-devcontainer:7.4] |
+| PHP      | 8.0     | [hspaans/php-devcontainer:8.0][php-devcontainer:8.0] |
 | PHP      | 8.0     | [hspaans/php-devcontainer:latest][php-devcontainer:latest] |
 
 [php-devcontainer:latest]: ghcr.io/hspaans/php-devcontainer:latest
