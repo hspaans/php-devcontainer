@@ -1,6 +1,4 @@
-#!/usr/bin/sh
-
-[ ! -d /home/vscode/bin ] || mkdir /home/vscode/bin
+#!/bin/sh
 
 curl -o /home/vscode/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
