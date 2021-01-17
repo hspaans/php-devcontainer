@@ -69,7 +69,7 @@ RUN chmod +x /usr/local/bin/install-*.sh \
 
 # Install Symfony-CLI
 RUN curl https://get.symfony.com/cli/installer | bash \
-    && mv /root/.symfony /home/vscode
+    && mv /root/.symfony /home/vscode \
     && chown -R vscode:vscode /home/vscode/.symfony
 
 # Install WP-CLI
