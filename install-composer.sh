@@ -11,8 +11,6 @@ then
     exit 1
 fi
 
-[ ! -d /home/vscode/bin ] || mkdir /home/vscode/bin
-
 php composer-setup.php --quiet --filename=composer --install-dir=/home/vscode/bin
 RESULT=$?
 rm composer-setup.php
