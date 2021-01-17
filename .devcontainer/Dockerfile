@@ -63,6 +63,7 @@ RUN apt-get update \
 
 RUN /usr/local/bin/install-composer.sh \
     && /usr/local/bin/install-symfony.sh \
+    && /usr/local/bin/install-wpcli.sh \
     && rm /usr/local/bin/install-*.sh
 
 # Switch back to dialog for any ad-hoc use of apt-get
