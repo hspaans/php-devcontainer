@@ -53,7 +53,7 @@ jobs:
           fi
 
   Anchore-Build-Scan:
-    needs: lint
+    needs: test
     name: Anchore-Build-Scan
     runs-on: ubuntu-latest
     steps:
