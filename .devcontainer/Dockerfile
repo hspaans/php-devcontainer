@@ -61,19 +61,19 @@ RUN apt-get update \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
 
-RUN chmod +x /usr/local/bin/install-*.sh \
+    && chmod +x /usr/local/bin/install-*.sh \
     && /usr/local/bin/install-composer.sh \
-    && rm /usr/local/bin/install-*.sh
+    && rm /usr/local/bin/install-*.sh \
 
-# Install Symfony-CLI
-RUN curl https://get.symfony.com/cli/installer | bash \
+    # Install Symfony-CLI
+    && curl https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony /home/vscode \
-    && chown -R vscode:vscode /home/vscode/.symfony
+    && chown -R vscode:vscode /home/vscode/.symfony \
 
-# Install WP-CLI
-RUN curl -o /home/vscode/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    # Install WP-CLI
+    && curl -o /home/vscode/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chown -R vscode:vscode /home/vscode/bin \
     && chmod 755 /home/vscode/bin/wp
 
