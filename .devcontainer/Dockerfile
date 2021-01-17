@@ -63,7 +63,8 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN /usr/local/bin/install-composer.sh \
+RUN chmod +x /usr/local/bin/install-*.sh \
+    && /usr/local/bin/install-composer.sh \
     && /usr/local/bin/install-symfony.sh \
     && /usr/local/bin/install-wpcli.sh \
     && rm /usr/local/bin/install-*.sh
