@@ -65,9 +65,17 @@ RUN apt-get update \
 
 RUN chmod +x /usr/local/bin/install-*.sh \
     && /usr/local/bin/install-composer.sh \
-    && /usr/local/bin/install-symfony.sh \
-    && /usr/local/bin/install-wpcli.sh \
     && rm /usr/local/bin/install-*.sh
+
+# Install Symfony-CLI
+RUN curl https://get.symfony.com/cli/installer | bash \
+    && mv /root/.symfony /home/vscode
+    && chown -R vscode:vscode /home/vscode/.symfony
+
+# Install WP-CLI
+RUN curl -o /home/vscode/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chown -R vscode:vscode /home/vscode/bin \
+    && chmod 755 /home/vscode/bin/wp
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
