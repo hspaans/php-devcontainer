@@ -26,8 +26,8 @@ RUN apt-get update \
     #
     # Set local PHP settings
     && echo "short_open_tag=off" > /usr/local/etc/php/conf.d/local.ini \
-    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/local.ini \
-    && echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/local.ini \
     #
     # Install PHP dependencies
     && apt-get -y install --no-install-recommends libzip-dev libicu-dev \
