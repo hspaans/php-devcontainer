@@ -26,8 +26,8 @@ RUN apt-get update \
     #
     # Set local PHP settings
     && echo "short_open_tag=off" > /usr/local/etc/php/conf.d/local.ini \
-    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/local.ini \
-    && echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/local.ini \
     #
     # Install PHP dependencies
     && apt-get -y install --no-install-recommends libzip-dev libicu-dev \
@@ -51,6 +51,8 @@ RUN apt-get update \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid "$USER_GID" "$USERNAME" \
     && useradd -s /bin/bash --uid "$USER_UID" --gid "$USER_GID" -m "$USERNAME" \
+    && mkdir -m 0755 /home/vscode/bin \
+    && chown "$USERNAME":"$USERNAME" /home/vscode/bin \
     # [Optional] Add sudo support for the non-root user
     # && apt-get install -y sudo \
     # && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
@@ -59,11 +61,21 @@ RUN apt-get update \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
 
-RUN /usr/local/bin/install-composer.sh \
-    && /usr/local/bin/install-symfony.sh \
-    && rm /usr/local/bin/install-*.sh
+    && chmod +x /usr/local/bin/install-*.sh \
+    && /usr/local/bin/install-composer.sh \
+    && rm /usr/local/bin/install-*.sh \
+
+    # Install Symfony-CLI
+    && curl https://get.symfony.com/cli/installer | bash \
+    && mv /root/.symfony /home/vscode \
+    && chown -R vscode:vscode /home/vscode/.symfony \
+
+    # Install WP-CLI
+    && curl -o /home/vscode/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chown -R vscode:vscode /home/vscode/bin \
+    && chmod 755 /home/vscode/bin/wp
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
