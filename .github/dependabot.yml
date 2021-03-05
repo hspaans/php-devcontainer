@@ -4,63 +4,55 @@ updates:
   - package-ecosystem: docker
     directory: /.devcontainer/
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: master
     open-pull-requests-limit: 10
 
   - package-ecosystem: docker
     directory: /.devcontainer/
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: v7.3
     open-pull-requests-limit: 10
 
   - package-ecosystem: docker
     directory: /.devcontainer/
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: v7.4
     open-pull-requests-limit: 10
 
   - package-ecosystem: docker
     directory: /.devcontainer/
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: v8.0
     open-pull-requests-limit: 10
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: master
     open-pull-requests-limit: 10
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: v7.3
     open-pull-requests-limit: 10
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: v7.4
     open-pull-requests-limit: 10
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
-      day: friday
+      interval: daily
     target-branch: v8.0
     open-pull-requests-limit: 10
