@@ -59,9 +59,8 @@ RUN apt-get update \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN /usr/local/bin/install-composer.sh \
+    && rm -rf /var/lib/apt/lists/* \
+    && /usr/local/bin/install-composer.sh \
     && /usr/local/bin/install-symfony.sh \
     && rm /usr/local/bin/install-*.sh
 
