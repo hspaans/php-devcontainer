@@ -1,4 +1,4 @@
-FROM php:7.4.20-cli
+FROM php:7.4.21-cli
 
 LABEL org.opencontainers.image.description="PHP devcontainer for VSCode or Codespaces"
 LABEL org.opencontainers.image.source=https://github.com/hspaans/php-devcontainer
