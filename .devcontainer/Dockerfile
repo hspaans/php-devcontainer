@@ -1,4 +1,4 @@
-FROM php:8.0.7-cli
+FROM php:8.1.0alpha2-cli
 
 LABEL org.opencontainers.image.description="PHP devcontainer for VSCode or Codespaces"
 LABEL org.opencontainers.image.source=https://github.com/hspaans/php-devcontainer
